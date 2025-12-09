@@ -1,0 +1,1 @@
+#Ideia é ser um cadastro que te dê opções de escolher gerar uma senha ou criar uma sua.#
