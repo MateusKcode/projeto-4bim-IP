@@ -1,19 +1,12 @@
 import string
 import random
+from gerador import gerador_senhas
 
 # Lista onde serão armazenados os cadastros (referência + senha)
 cadastros = []
 
 # Lista onde serão armazenados os lembretes (referência + lembrete)
 lembretes = []
-
-# Função responsável por gerar senhas aleatórias
-def gerador_senhas(comprimento):
-    chars = string.ascii_letters + string.digits + string.punctuation
-    senha = []
-    for i in range(comprimento):
-        senha.append(random.choice(chars))
-    return ''.join(senha)
 
 # ================= MENU INICIAL =================
 while True:
@@ -40,10 +33,8 @@ while True:
 
             # Gerar senha automática
             if escolha == "1":
-                referencia = input("Digite uma referência: ")
                 senha = gerador_senhas(8)
-                cadastros.append((referencia, senha))
-                print("Senha gerada:", senha)
+                print(f"Sua senha gerada é: {senha}")
 
             # Usar senha própria
             elif escolha == "2":
