@@ -10,18 +10,33 @@ lembretes = []
 
 # ================= MENU INICIAL =================
 while True:
-    print("\nMENU INICIAL")
+    text = """
+
+██████████████████████████████████████████████████████████████████████
+█▄─▀█▀─▄█▄─▄▄─█▄─▀█▄─▄█▄─██─▄███▄─▄█▄─▀█▄─▄█▄─▄█─▄▄▄─█▄─▄██▀▄─██▄─▄███
+██─█▄█─███─▄█▀██─█▄▀─███─██─█████─███─█▄▀─███─██─███▀██─███─▀─███─██▀█
+▀▄▄▄▀▄▄▄▀▄▄▄▄▄▀▄▄▄▀▀▄▄▀▀▄▄▄▄▀▀▀▀▄▄▄▀▄▄▄▀▀▄▄▀▄▄▄▀▄▄▄▄▄▀▄▄▄▀▄▄▀▄▄▀▄▄▄▄▄▀
+"""
+    print(text)
     print("Digite '1' para abrir o programa")
     print("Digite '2' para sair do programa")
 
     opcao = input("Digite uma opção: ")
 
     if opcao == "1":
-        print("\nPrograma aberto com sucesso!")
+        text3 = """
+Pʀᴏɢʀᴀᴍᴀ ᴀʙᴇʀᴛᴏ ᴄᴏᴍ sᴜᴄᴇssᴏ!
+"""
+        print(text3)
 
         # ============== MENU PRINCIPAL ==============
         while True:
-            print("\nMENU PRINCIPAL")
+            text2 = """
+
+█▀▄▀█ █▀▀ █▄░█ █░█   █▀█ █▀█ █ █▄░█ █▀▀ █ █▀█ ▄▀█ █░░
+█░▀░█ ██▄ █░▀█ █▄█   █▀▀ █▀▄ █ █░▀█ █▄▄ █ █▀▀ █▀█ █▄▄
+            """
+            print(text2)
             print("1 - Gerar senha")
             print("2 - Entrar com senha gerada ou própria")
             print("3 - Ver cadastros")
@@ -68,14 +83,19 @@ while True:
 
             # Voltar ao menu inicial
             elif escolha == "6":
-                print("Voltando ao menu inicial...")
+                text4 = """
+Vᴏʟᴛᴀɴᴅᴏ ᴀᴏ ᴍᴇɴᴜ ɪɴɪᴄɪᴀʟ..."""
+                print(text4)
                 break
 
             else:
                 print("Opção inválida!")
 
     elif opcao == "2":
-        print("Saindo do programa...")
+        text5 = """
+sᴀɪɴᴅᴏ ᴅᴏ ᴘʀᴏɢʀᴀᴍᴀ...
+"""
+        print(text5)
         break
 
     else:
