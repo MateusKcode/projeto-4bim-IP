@@ -1,12 +1,36 @@
 import string
 import random
+import json
+import os
 from gerador import gerador_senhas
 
-# Lista onde serão armazenados os cadastros (referência + senha)
-cadastros = []
+# Nome do arquivo JSON
+ARQUIVO = "dados.json"
 
-# Lista onde serão armazenados os lembretes (referência + lembrete)
-lembretes = []
+# ================= FUNÇÕES JSON =================
+
+def carregar_dados():
+    """Carrega os dados salvos no arquivo JSON."""
+    if os.path.exists(ARQUIVO):
+        with open(ARQUIVO, "r", encoding="utf-8") as f:
+            return json.load(f)
+    return {"cadastros": [], "lembretes": []}
+
+
+def salvar_dados(dados):
+    """Salva os dados no arquivo JSON."""
+    with open(ARQUIVO, "w", encoding="utf-8") as f:
+        json.dump(dados, f, indent=4, ensure_ascii=False)
+
+
+# ================= INÍCIO DO PROGRAMA =================
+
+# Carrega os dados salvos ao iniciar
+dados = carregar_dados()
+
+# Listas principais
+cadastros = dados["cadastros"]
+lembretes = dados["lembretes"]
 
 # ================= MENU INICIAL =================
 while True:
@@ -51,11 +75,14 @@ Pʀᴏɢʀᴀᴍᴀ ᴀʙᴇʀᴛᴏ ᴄᴏᴍ sᴜᴄᴇssᴏ!
                 senha = gerador_senhas(8)
                 print(f"Sua senha gerada é: {senha}")
 
-            # Usar senha própria
+            # Criar cadastro
             elif escolha == "2":
                 referencia = input("Digite seu usuário: ")
                 senha = input("Digite sua senha: ")
-                cadastros.append((referencia, senha))
+
+                cadastros.append({"usuario": referencia, "senha": senha})
+                salvar_dados(dados)
+
                 print("Senha salva com sucesso!")
 
             # Ver cadastros
@@ -63,14 +90,18 @@ Pʀᴏɢʀᴀᴍᴀ ᴀʙᴇʀᴛᴏ ᴄᴏᴍ sᴜᴄᴇssᴏ!
                 if not cadastros:
                     print("Nenhum cadastro ainda.")
                 else:
-                    for ref, senha in cadastros:
-                        print(ref, "-", senha)
+                    print("\nCADASTROS SALVOS:")
+                    for c in cadastros:
+                        print(c["usuario"], "-", c["senha"])
 
             # Criar lembrete
             elif escolha == "4":
                 referencia = input("Digite o nome do lembrete: ")
                 texto = input("Digite o lembrete: ")
-                lembretes.append((referencia, texto))
+
+                lembretes.append({"titulo": referencia, "texto": texto})
+                salvar_dados(dados)
+
                 print("Lembrete salvo com sucesso!")
 
             # Ver lembretes
@@ -78,13 +109,15 @@ Pʀᴏɢʀᴀᴍᴀ ᴀʙᴇʀᴛᴏ ᴄᴏᴍ sᴜᴄᴇssᴏ!
                 if not lembretes:
                     print("Nenhum lembrete salvo.")
                 else:
-                    for ref, texto in lembretes:
-                        print(ref, "→", texto)
+                    print("\nLEMBRETES SALVOS:")
+                    for l in lembretes:
+                        print(l["titulo"], "→", l["texto"])
 
-            # Voltar ao menu inicial
+            # Voltar
             elif escolha == "6":
                 text4 = """
-Vᴏʟᴛᴀɴᴅᴏ ᴀᴏ ᴍᴇɴᴜ ɪɴɪᴄɪᴀʟ..."""
+Vᴏʟᴛᴀɴᴅᴏ ᴀᴏ ᴍᴇɴᴜ ɪɴɪᴄɪᴀʟ...
+"""
                 print(text4)
                 break
 

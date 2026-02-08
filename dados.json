@@ -1,0 +1,30 @@
+{
+    "cadastros": [
+        {
+            "usuario": "mateus",
+            "senha": "|.sWg'v~"
+        },
+        {
+            "usuario": "mateus pontes",
+            "senha": "|.sWg'v~"
+        },
+        {
+            "usuario": "mateusinho",
+            "senha": " kfV)^\\aS"
+        }
+    ],
+    "lembretes": [
+        {
+            "titulo": "prova",
+            "texto": "matemática terça"
+        },
+        {
+            "titulo": "sistema",
+            "texto": "funcionando!!!"
+        },
+        {
+            "titulo": "prova de quimica",
+            "texto": "estudar moléculas"
+        }
+    ]
+}
