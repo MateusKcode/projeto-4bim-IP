@@ -11,6 +11,10 @@
         {
             "usuario": "mateusinho",
             "senha": " kfV)^\\aS"
+        },
+        {
+            "usuario": "johnny",
+            "senha": "+]$DT5ZK"
         }
     ],
     "lembretes": [
@@ -25,6 +29,10 @@
         {
             "titulo": "prova de quimica",
             "texto": "estudar moléculas"
+        },
+        {
+            "titulo": "férias",
+            "texto": "estou de férias, vou jogar roblox!"
         }
     ]
 }
